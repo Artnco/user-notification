@@ -1,6 +1,6 @@
 <?php
 
-// Ajout de l'action AJAX pour les utilisateurs connectés
+
 add_action('wp_ajax_mark_messages_as_read', 'mark_messages_as_read_callback');
 
 function mark_messages_as_read_callback() {

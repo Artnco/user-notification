@@ -9,26 +9,26 @@ License: GPL2
 Domain Path: /languages
 */
 
-// Prevent direct access to the file
+
 if (!defined('ABSPATH')) {
     exit;
 }
 
-// Add this function to enqueue the CSS and JavaScript files
+
 function notification_user_enqueue_scripts() {
     wp_enqueue_style('notification-user-style', plugin_dir_url(__FILE__) . 'css/style.css', array(), '1.0.0');
     wp_enqueue_script('notification-user-settings', plugin_dir_url(__FILE__) . 'js/settings.js', array('jquery'), '1.0.0', true);
 
-    // Merge the two functions
+ 
     wp_localize_script('notification-user-settings', 'notification_user_ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
 }
 
-// Add this action to enqueue the files at the appropriate time
+
 add_action('wp_enqueue_scripts', 'notification_user_enqueue_scripts');
 add_action('admin_enqueue_scripts', 'notification_user_enqueue_scripts');
 
 
-// Include the shortcode and associated functions
+
 require_once(plugin_dir_path(__FILE__) . 'notification_shortcode.php');
 require_once plugin_dir_path(__FILE__) . 'notification_ajax_handlers.php';
 require_once plugin_dir_path(__FILE__) . 'notification-settings-page.php';
@@ -68,7 +68,3 @@ function register_notification_email_settings() {
     register_setting('notification_email_settings', 'notification_email_settings');
 }
 add_action('admin_init', 'register_notification_email_settings');
-
-
-
-

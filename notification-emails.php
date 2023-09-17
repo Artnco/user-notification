@@ -22,17 +22,17 @@ function send_notification_email($post_ID, $post, $update) {
         $user_id_meta_value = get_post_meta($post_ID, $meta_key, true);
 
         if($user_id_meta_value) {
-            // The rest of the code to send the email here
+            
             $user_info = get_userdata($user_id_meta_value);
             if ($user_info) {
                 $user_email = $user_info->user_email;
 
-                // Preparing the email
+                
                 $to = $user_email;
                 $subject = $email_settings['email_subject'];
                 $message = $email_settings['email_body'];
                 
-                // Sending the email
+               
                 wp_mail($to, $subject, $message);
             }
         } else {
@@ -44,18 +44,18 @@ function send_notification_email($post_ID, $post, $update) {
 function retry_send_notification_email($post_ID, $meta_key) {
     $user_id_meta_value = get_post_meta($post_ID, $meta_key, true);
     if(!empty($user_id_meta_value)) {
-        // The code to send the email here, since we now have the meta value
+        
         $email_settings = get_option('notification_email_settings');
         $user_info = get_userdata($user_id_meta_value);
         if ($user_info) {
             $user_email = $user_info->user_email;
             
-            // Preparing the email
+           
             $to = $user_email;
             $subject = $email_settings['email_subject'];
             $message = $email_settings['email_body'];
             
-            // Sending the email
+           
             wp_mail($to, $subject, $message);
         }
     }

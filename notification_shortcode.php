@@ -58,6 +58,3 @@ function notification_user_bell_shortcode() {
 }
 
 add_shortcode('notification_bell', 'notification_user_bell_shortcode');
-
-
-

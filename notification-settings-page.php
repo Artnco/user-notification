@@ -23,15 +23,15 @@ function notification_settings_page_html() {
 
     settings_errors('notification_settings_messages');
 
-    // récupérez les options enregistrées
+   
     $options = get_option('notification_settings');
     
-    // Récupérez tous les types de post
+   
     $post_types = get_post_types(['public' => true], 'objects');
     
     wp_enqueue_script('notification-user-settings', plugin_dir_url(__FILE__) . 'js/settings.js', array('jquery'), '1.0.0', true);
     
-    // Ici, j'ai fusionné les deux appels en un seul avec toutes les données nécessaires
+    
     wp_localize_script('notification-user-settings', 'notification_user_ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'saved_meta_key' => isset($options['meta_key']) ? $options['meta_key'] : ''
@@ -67,20 +67,20 @@ function notification_settings_page_html() {
             <p class="settings-description">The selected meta field should be the one that dynamically adds the user ID who is supposed to receive the notification</p>
             <input class="meta-select-search" type="text" placeholder="Enter at least 3 characters" minlength="3" autocomplete="off" required />
             <svg class="meta-select-icon" viewBox="0 0 16 16" width="13" height="13">
-                <!-- SVG Path -->
+              
             </svg>
             <ul class="meta-select-results"></ul>
             <input type="hidden" name="notification_settings[meta_key]" id="selected_meta_key" value="<?php echo esc_attr($options['meta_key']); ?>" required />
         </div>
 
-        <!-- Section to choose the redirection page -->
+        
         <h2 class="settings-header">Select the redirection page *</h2>
         <p class="settings-description">This page will be the page where the user, who receives the notification, will be redirected to.<br>For example, your page that displays the received messages.</p>
         <?php
-        // Before displaying the select field, retrieve all the pages
+        
         $all_pages = get_pages();
         ?>
-        <!-- Display a select field with all the pages as options -->
+       
         <select name="notification_settings[redirection_page]" id="redirection_page" required>
             <?php foreach ($all_pages as $page) : ?>
                 <option value="<?php echo get_page_link($page->ID); ?>" 
@@ -110,7 +110,7 @@ function notification_settings_page_html() {
     
         <?php submit_button('Save Settings'); ?>
     </form>
-    <p>To learn more about how the plugin works, you can <a href="#" target="_blank">click here</a>.</p>
+    <p>To learn more about how the plugin works, you can <a href="https://github.com/Artnco/user-notification/tree/main" target="_blank">click here</a>.</p>
 </div>
 
 

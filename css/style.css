@@ -54,7 +54,7 @@
     width: calc(100% - 26px);
     padding: 6px 13px;
     border: 1px solid #ccc;
-    border-radius: 5px; /* Ajout d'un rayon de bordure pour adoucir les coins du champ de recherche */
+    border-radius: 5px;
 }
 
 .meta-select-icon {

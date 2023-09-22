@@ -33,7 +33,7 @@ Then, once you've created your CPT, you need to add a meta text field, which you
 <li> Then a last field to add the message</li>
 </ul>
 
-<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/form-1.png" width="100%">
+<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/form-2.png" width="100%">
 	
 Then in the section: "Post Submit Actions", you need to add a new action "Insert/Update Post".
 <ul>
@@ -42,6 +42,6 @@ Then in the section: "Post Submit Actions", you need to add a new action "Insert
 <li> And in map, we advise you to do as the example below.</li>
 </ul>
 
-<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/form-2.png" width="100%">
+<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/form-3.png" width="100%">
 
 Then update this part, as well as the form.

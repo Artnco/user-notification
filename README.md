@@ -44,4 +44,13 @@ Then in the section: "Post Submit Actions", you need to add a new action "Insert
 
 <img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/form-3.png" width="100%">
 
-Then update this part, as well as the form.
+Then update this part, as well as the form.<br>
+
+For the rest, we'll assume that your marketplace has different users, with different product sheets/posts, so for the module to work, you'll need to integrate your jetformbuilder form on the post of the user who is to receive the message.
+<br>For our example, we've created a marketplace with different posts created by different users. On one of the posts, we added a "Contact" button with an Elementor popup in action.<br><br>
+
+<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/front-1.png" width="100%">
+
+And we integrated the Jetformbuilder form<br>
+
+<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/front-2.png" width="100%">

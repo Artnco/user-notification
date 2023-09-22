@@ -15,8 +15,9 @@ We're at the Alpha version of development, so there's a lot of testing to do bef
 <li> Wordpress 6.2.0 minimum</li>
 <li> Jetengine (to create a custom post type and a meta field)</li>
 <li> Jetformbuilder (to create the request form)</li>
+</ul>
 
-<h2>Setting up :</h2> 
+<h2>Setting up:</h2> 
 1 - First of all, you need to create a custom post type in your Wordpress. 
 You can use Jetengine, or any other module. (Tutorial from Crocoblock to help you: https://crocoblock.com/knowledge-base/jetengine/how-to-create-a-custom-post-type-based-on-jetengine-plugin/).
 For our example, we'll call it "Messages".

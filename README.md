@@ -23,4 +23,25 @@ You can use Jetengine, or any other module. (Tutorial from Crocoblock to help yo
 For our example, we'll call it <b>"Messages"</b>.<br>
 Then, once you've created your CPT, you need to add a meta text field, which you can call anything you like. We've called it <b>"id-user".</b><br><br>
 
-<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/Capture-decran-2023-09-22-a-17.15.53.png" width="100%"></span>
+<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/post-types.png" width="100%">
+<br><br>
+
+2 - When this is done, you need to create a form, ideally with Jetformbuilder. To do this, you need to create various fields. 
+<ul>
+<li> A first hidden field, user_id with the value "Current User ID".</li>
+<li> A second field with the meta field created earlier, so in our example it's "id-user".</li>
+<li> Then a last field to add the message</li>
+</ul>
+
+<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/form-1.png" width="100%">
+	
+Then in the section: "Post Submit Actions", you need to add a new action "Insert/Update Post".
+<ul>
+<li> Fetch the previously created post type</li>
+<li> The status of the post</li>
+<li> And in map, we advise you to do as the example below.</li>
+</ul>
+
+<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/form-2.png" width="100%">
+
+Then update this part, as well as the form.

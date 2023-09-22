@@ -18,6 +18,9 @@ We're at the Alpha version of development, so there's a lot of testing to do bef
 </ul>
 
 <h2>Setting up:</h2> 
-1 - First of all, you need to create a custom post type in your Wordpress. 
-You can use Jetengine, or any other module. (Tutorial from Crocoblock to help you: https://crocoblock.com/knowledge-base/jetengine/how-to-create-a-custom-post-type-based-on-jetengine-plugin/).
-For our example, we'll call it "Messages".
+1 - First of all, you need to create a custom post type in your Wordpress.<br> 
+You can use Jetengine, or any other module. (Tutorial from Crocoblock to help you: https://crocoblock.com/knowledge-base/jetengine/how-to-create-a-custom-post-type-based-on-jetengine-plugin/).<br>
+For our example, we'll call it <b>"Messages"</b>.<br>
+Then, once you've created your CPT, you need to add a meta text field, which you can call anything you like. We've called it <b>"id-user".</b><br><br>
+
+<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/Capture-decran-2023-09-22-a-17.15.53.png" width="100%"></span>

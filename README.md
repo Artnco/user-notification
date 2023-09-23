@@ -28,8 +28,8 @@ Then, once you've created your CPT, you need to add a meta text field, which you
 
 2 - When this is done, you need to create a form, ideally with Jetformbuilder. To do this, you need to create various fields.â€¨
 <ul>
-<li> A first hidden field, user_id with the value "Current User ID".</li>
-<li> A second field with the meta field created earlier, so in our example it's "id-user".</li>
+<li> A first hidden field, user_id with the value "Current User ID", which will retrieve the id of the logged-in user.</li>
+<li> A second field, with the meta field created earlier, so for our example it's "id-user". The form will automatically integrate the id of the post's author, who will receive the notification and email.</li>
 <li> Then a last field to add the message</li>
 </ul>
 
@@ -64,6 +64,6 @@ After installation, you'll see a tab in the menu called Notifications settings.â
 <li> The redirection link when you click on the icon.</li>
 <li> And you'll be able to set the color of the icon and the message counter.</li>
 </ul>
-And of course there's the icon shortcode and counter, which you can add wherever you like. [notification_bell]
+And of course there's the icon shortcode and counter, which you can add wherever you like. [notification_bell]<br><br>
 
-
+<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/settings-1.png" width="100%">

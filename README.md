@@ -67,3 +67,7 @@ After installation, you'll see a tab in the menu called Notifications settings.â
 And of course there's the icon shortcode and counter, which you can add wherever you like. [notification_bell]<br><br>
 
 <img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/settings-1.png" width="100%">
+
+Next, you can set the title and body of the email sent to the user in the tab below, called "Email settings". This email will automatically be sent to the user id present in the meta field selected above.
+
+<img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/email-1.png" width="100%">

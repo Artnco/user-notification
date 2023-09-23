@@ -71,3 +71,9 @@ And of course there's the icon shortcode and counter, which you can add wherever
 Next, you can set the title and body of the email sent to the user in the tab below, called "Email settings". This email will automatically be sent to the user id present in the meta field selected above.
 
 <img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/email-1.png" width="100%">
+
+<h2>Feedback:</h2>
+<b>We are currently in the Alpha phase of module creation.</b> We strongly advise against using this module on a site in production.<br>
+We will not be held responsible for any problems that may arise until the module has reached its final version.<br><br>
+If you have any suggestions, a technical problem installing the module, or anything else, don't hesitate to let us know, with as many details as possible (images, videos, etc.). And we'll be offering a lifetime license to anyone who makes a significant contribution to improving this module.<br><br>
+Thanks to all

@@ -1,5 +1,5 @@
 <?php
-function notification_settings_page_html() {
+function email_settings_page_html() {
     if (!current_user_can('manage_options')) {
         return;
     }

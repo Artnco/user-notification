@@ -72,6 +72,8 @@ Next, you can set the title and body of the email sent to the user in the tab be
 
 <img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/email-1.png" width="100%">
 
+https://github.com/Artnco/user-notification/assets/145267846/4deae5cc-081d-401e-8701-46a8ba8592f5
+
 <h2>Feedback:</h2>
 <b>We are currently in the Alpha phase of module creation.</b> We strongly advise against using this module on a site in production.<br>
 We will not be held responsible for any problems that may arise until the module has reached its final version.<br><br>

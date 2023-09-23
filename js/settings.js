@@ -19,15 +19,12 @@ jQuery(document).ready(function($) {
         });
     }
 
-    // Récupérez le chemin d'accès à la page sélectionnée depuis l'option de la base de données
     var selectedPagePath = "<?php echo parse_url(get_option('notification_redirection_page'), PHP_URL_PATH); ?>";
     
-    // Si nous sommes sur la page sélectionnée, réinitialisez le compteur de notifications
     if (window.location.pathname === selectedPagePath) {
         resetNotificationCount();
     }
 
-    // Ajoutez un gestionnaire de clics qui réinitialise le compteur lorsque l'utilisateur clique sur la notification bell
     $('.notification-bell').on('click', function() {
         resetNotificationCount();
     });
@@ -35,7 +32,6 @@ jQuery(document).ready(function($) {
 
 (function($) {
     function getNotificationCount() {
-        // N'exécutez pas sur la page sélectionnée
         var selectedPagePath = "<?php echo parse_url(get_option('notification_redirection_page'), PHP_URL_PATH); ?>";
         if (window.location.pathname === selectedPagePath) return;
 
@@ -43,7 +39,7 @@ jQuery(document).ready(function($) {
     var $notifBell = $('.notification-bell');
     var user_id = $notifBell.data('user-id');
 
-    if (user_id) { // This line checks whether the user ID is defined and non-null
+    if (user_id) {
         $.ajax({
             url: notification_user_ajax_object.ajax_url,
             type: 'POST',
@@ -56,7 +52,7 @@ jQuery(document).ready(function($) {
                     var $notifCount = $notifBell.find('.notification-count');
 
                     if (response.data > 0) {
-                        if (!$notifCount.length) { // If the .notification-count element does not exist, create it
+                        if (!$notifCount.length) {
                             $notifCount = $('<span/>', {
                                 id: 'notification-count',
                                 'class': 'notification-count',
@@ -64,7 +60,7 @@ jQuery(document).ready(function($) {
                         }
                         $notifCount.text(response.data);
                         $notifCount.show();
-                    } else if ($notifCount.length) { // If the .notification-count element exists and the count is zero, remove it
+                    } else if ($notifCount.length) {
                         $notifCount.remove();
                     }
                 }
@@ -79,11 +75,8 @@ jQuery(document).ready(function($) {
 }
 
 
-    // Call the function every 2 seconds (or any other interval of your choice)
     setInterval(getNotificationCount, 2000);
 })(jQuery);
-
-
 
 
 jQuery(document).ready(function($) {
@@ -141,8 +134,3 @@ jQuery(document).ready(function($) {
         $(this).remove();
     });
 });
-
-
-
-
-

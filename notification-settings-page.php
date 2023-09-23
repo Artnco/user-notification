@@ -1,5 +1,4 @@
 <?php
-
 function notification_settings_init() {
     register_setting('notification_settings', 'notification_settings', array(
         'default' => array(
@@ -7,42 +6,29 @@ function notification_settings_init() {
             'meta_key' => '',
         ),
     ));
-
 }
 add_action('admin_init', 'notification_settings_init');
-
 
 function notification_settings_page_html() {
     if (!current_user_can('manage_options')) {
         return;
     }
-
     if (isset($_GET['settings-updated'])) {
         add_settings_error('notification_settings_messages', 'notification_settings_message', 'Paramètres enregistrés', 'updated');
     }
-
     settings_errors('notification_settings_messages');
-
     $options = get_option('notification_settings');
-    
     $post_types = get_post_types(['public' => true], 'objects');
-    
     wp_enqueue_script('notification-user-settings', plugin_dir_url(__FILE__) . 'js/settings.js', array('jquery'), '1.0.0', true);
-    
     wp_localize_script('notification-user-settings', 'notification_user_ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'saved_meta_key' => isset($options['meta_key']) ? $options['meta_key'] : ''
     ));
-
-    
     ?>
-    
     
     <div class="wrap">
     <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
-    
     <p class="starting-mobule">To get started, insert the shortcode <b>[notification_bell]</b> wherever you want.</p>
-    
     
     <form action="options.php" method="post" id="settings-form">
         <?php
@@ -87,17 +73,14 @@ function notification_settings_page_html() {
         
         <h2 class="settings-header">Notification Icon and Counter Colors</h2>
         <p class="settings-description">Choose the colors for the notification icon and counter.</p>
-    
         <p>
             <label for="notification_bell_color">Notification Bell Color: </label>
             <input type="color" id="notification_bell_color" name="notification_settings[bell_color]" value="<?php echo esc_attr($options['bell_color']); ?>" />
         </p>
-    
         <p>
             <label for="notification_counter_bg_color">Notification Counter Background Color: </label>
             <input type="color" id="notification_counter_bg_color" name="notification_settings[counter_bg_color]" value="<?php echo esc_attr($options['counter_bg_color']); ?>" />
         </p>
-    
         <p>
             <label for="notification_counter_text_color">Notification Counter Text Color: </label>
             <input type="color" id="notification_counter_text_color" name="notification_settings[counter_text_color]" value="<?php echo esc_attr($options['counter_text_color']); ?>" />
@@ -107,8 +90,6 @@ function notification_settings_page_html() {
     </form>
     <p>To learn more about how the plugin works, you can <a href="https://github.com/Artnco/user-notification" target="_blank">click here</a>.</p>
 </div>
-
-
 <?php
 }
 

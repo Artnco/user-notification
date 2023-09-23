@@ -1,65 +1,38 @@
 <?php
 
-function send_notification_email($post_ID, $post, $update) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+function notification_email_settings_page_html() {
+
+    if (!current_user_can('manage_options')) {
         return;
     }
 
-    if ($update) {
-        return;
-    }
+    $options = get_option('notification_email_settings');
 
-    $notification_settings = get_option('notification_settings', array('meta_key' => 'id-user'));
-    $email_settings = get_option('notification_email_settings');
-    $meta_key = $notification_settings['meta_key'];
+
+    echo '<div class="wrap notif_wrap">';
+    echo '<h1>Email Settings</h1>';
+
+    if (isset($_GET['settings-updated']) && $_GET['settings-updated']) {
+        echo '<div class="updated notice is-dismissible"><p>Parameters have been successfully saved.</p></div>';
+    }
     
-    $post_type_setting = isset($notification_settings['post_type']) ? $notification_settings['post_type'] : null;
-    if ($post->post_type !== $post_type_setting) {
-        return;
-    }
+    echo '<form method="post" action="options.php" class="notif_form">';
+    
+    settings_fields('notification_email_settings');
+    do_settings_sections('notification_email_settings');
+    
+    echo '<div class="notif_form-group">';
+    echo '<label for="email_subject" class="notif_label">Email Subject</label>';
+    echo '<input type="text" id="email_subject" name="notification_email_settings[email_subject]" value="' . esc_attr($options['email_subject']) . '" class="notif_input" />';
+    echo '</div>';
 
-    if($meta_key) {
-        $user_id_meta_value = get_post_meta($post_ID, $meta_key, true);
-
-        if($user_id_meta_value) {
-            
-            $user_info = get_userdata($user_id_meta_value);
-            if ($user_info) {
-                $user_email = $user_info->user_email;
-
-                
-                $to = $user_email;
-                $subject = $email_settings['email_subject'];
-                $message = $email_settings['email_body'];
-                
-               
-                wp_mail($to, $subject, $message);
-            }
-        } else {
-            wp_schedule_single_event(time() + 10, 'retry_send_notification_email', array($post_ID, $meta_key));
-        }
-    }
+    echo '<div class="notif_form-group">';
+    echo '<label for="email_body" class="notif_label">Email Body</label>';
+    echo '<textarea id="email_body" name="notification_email_settings[email_body]" rows="10" cols="50" class="notif_textarea">' . esc_textarea($options['email_body']) . '</textarea>';
+    echo '</div>';
+    
+    submit_button('Save Settings');
+    
+    echo '</form>';
+    echo '</div>';
 }
-
-function retry_send_notification_email($post_ID, $meta_key) {
-    $user_id_meta_value = get_post_meta($post_ID, $meta_key, true);
-    if(!empty($user_id_meta_value)) {
-        
-        $email_settings = get_option('notification_email_settings');
-        $user_info = get_userdata($user_id_meta_value);
-        if ($user_info) {
-            $user_email = $user_info->user_email;
-            
-           
-            $to = $user_email;
-            $subject = $email_settings['email_subject'];
-            $message = $email_settings['email_body'];
-            
-           
-            wp_mail($to, $subject, $message);
-        }
-    }
-}
-
-add_action('retry_send_notification_email', 'retry_send_notification_email', 10, 2);
-add_action('save_post', 'send_notification_email', 99, 3);

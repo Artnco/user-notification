@@ -88,7 +88,7 @@ function email_settings_page_html() {
 
 <?php
 }
-function notification_meta_key_search_callback() {
+function notification_meta_key_search_callback_email() {
     global $wpdb;
 
     $search_str = isset($_POST['search_str']) ? sanitize_text_field($_POST['search_str']) : '';
@@ -110,4 +110,5 @@ function notification_meta_key_search_callback() {
     }
 }
 
-add_action('wp_ajax_notification_meta_key_search', 'notification_meta_key_search_callback');
+add_action('wp_ajax_notification_meta_key_search', 'notification_meta_key_search_callback_email');
+

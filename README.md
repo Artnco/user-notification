@@ -54,3 +54,16 @@ For the rest, we'll assume that your marketplace has different users, with diffe
 And we integrated the Jetformbuilder form<br>
 
 <img src="https://marketplace.jrwebconcept.fr/wp-content/uploads/2023/09/front-2.png" width="100%">
+
+Now that you've created the custom post type, its meta field and the form, you can install the plugin, if you haven't already, and we'll be able to configure it.<br>
+
+After installation, you'll see a tab in the menu called Notifications settings. From here, you'll need to select :
+<ul>
+<li> The relevant post type</li>
+<li> The meta field, which is the same as the one you created in the custom post type. We've added an automatic search to find the right field.</li>
+<li> The redirection link when you click on the icon.</li>
+<li> And you'll be able to set the color of the icon and the message counter.</li>
+</ul>
+And of course there's the icon shortcode and counter, which you can add wherever you like. [notification_bell]
+
+

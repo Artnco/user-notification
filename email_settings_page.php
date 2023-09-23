@@ -1,15 +1,4 @@
 <?php
-function notification_settings_init() {
-    register_setting('notification_settings', 'notification_settings', array(
-        'default' => array(
-            'post_type' => '',
-            'meta_key' => '',
-        ),
-    ));
-
-}
-add_action('admin_init', 'notification_settings_init');
-
 function notification_settings_page_html() {
     if (!current_user_can('manage_options')) {
         return;

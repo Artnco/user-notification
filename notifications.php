@@ -50,9 +50,8 @@ function notification_email_settings_menu() {
         'Email Settings',
         'manage_options',
         'notification-email-settings',
-        'notification_email_settings_page_html',
+        'notification_email_settings_page_html', 
         5
-        
     );
 }
 add_action('admin_menu', 'notification_email_settings_menu');
@@ -70,5 +69,3 @@ function add_notification_settings_link($links) {
 
 $plugin = plugin_basename(__FILE__);
 add_filter("plugin_action_links_$plugin", 'add_notification_settings_link');
-
-

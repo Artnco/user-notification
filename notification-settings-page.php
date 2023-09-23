@@ -23,14 +23,11 @@ function notification_settings_page_html() {
 
     settings_errors('notification_settings_messages');
 
-   
     $options = get_option('notification_settings');
     
-   
     $post_types = get_post_types(['public' => true], 'objects');
     
     wp_enqueue_script('notification-user-settings', plugin_dir_url(__FILE__) . 'js/settings.js', array('jquery'), '1.0.0', true);
-    
     
     wp_localize_script('notification-user-settings', 'notification_user_ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php'),
@@ -67,20 +64,18 @@ function notification_settings_page_html() {
             <p class="settings-description">The selected meta field should be the one that dynamically adds the user ID who is supposed to receive the notification</p>
             <input class="meta-select-search" type="text" placeholder="Enter at least 3 characters" minlength="3" autocomplete="off" required />
             <svg class="meta-select-icon" viewBox="0 0 16 16" width="13" height="13">
-              
             </svg>
             <ul class="meta-select-results"></ul>
             <input type="hidden" name="notification_settings[meta_key]" id="selected_meta_key" value="<?php echo esc_attr($options['meta_key']); ?>" required />
         </div>
 
-        
         <h2 class="settings-header">Select the redirection page *</h2>
         <p class="settings-description">This page will be the page where the user, who receives the notification, will be redirected to.<br>For example, your page that displays the received messages.</p>
         <?php
-        
+    
         $all_pages = get_pages();
         ?>
-       
+
         <select name="notification_settings[redirection_page]" id="redirection_page" required>
             <?php foreach ($all_pages as $page) : ?>
                 <option value="<?php echo get_page_link($page->ID); ?>" 
@@ -110,7 +105,7 @@ function notification_settings_page_html() {
     
         <?php submit_button('Save Settings'); ?>
     </form>
-    <p>To learn more about how the plugin works, you can <a href="https://github.com/Artnco/user-notification/tree/main" target="_blank">click here</a>.</p>
+    <p>To learn more about how the plugin works, you can <a href="https://github.com/Artnco/user-notification" target="_blank">click here</a>.</p>
 </div>
 
 
